@@ -79,7 +79,7 @@
       [
         "$mod, L, exec, librewolf"
         "$mod shift, Q, killactive"
-        "$mod shift, S, exec, flameshot screen"
+        #"$mod shift, S, exec, flameshot gui"
 	"$mod, return, exec, alacritty"
 	"$mod, space, togglefloating"
 	"$mod, F, fullscreen"
@@ -91,6 +91,7 @@
 	"$mod shift, right, movewindow, r"
 	"$mod shift, down, movewindow, d"
 	"$mod shift, left, movewindow, l"
+	"$mod, D, exec, rofi -show drun"
       ]
       ++ (
         # workspaces
