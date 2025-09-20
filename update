@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+cp ../*.nix . || echo "Failed: 'cp ../*.nix .'" 
+cp home.nix /home/lubbaragaki/.config/home-manager/ || echo "Failed: 'home.nix ~/.config/home-manager/'"
+cp hardware-configuration.nix /etc/nixos || echo "Failed: 'hardware-configuration.nix /etc/nixos'" 
+cp configuration.nix /etc/nixos || echo "Failed: 'configuration.nix /etc/nixos'" 
