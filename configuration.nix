@@ -129,8 +129,8 @@
   quickshell
   zsh
   alacritty
-  pkgs.kitty # required for the default Hyprland config
   rofi
+  ksnip
   ];
   
 
