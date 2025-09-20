@@ -70,6 +70,42 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+  
+  wayland.windowManager.hyprland.enable = true;
+  
+  wayland.windowManager.hyprland.settings = {
+    "$mod" = "SUPER";
+    bind =
+      [
+        "$mod, L, exec, librewolf"
+        "$mod shift, Q, killactive"
+        "$mod shift, S, exec, flameshot screen"
+	"$mod, return, exec, alacritty"
+	"$mod, space, togglefloating"
+	"$mod, F, fullscreen"
+	"$mod, up, movefocus, u"
+	"$mod, right, movefocus, r"
+	"$mod, down, movefocus, d"
+	"$mod, left, movefocus, l"
+	"$mod shift, up, movewindow, u"
+	"$mod shift, right, movewindow, r"
+	"$mod shift, down, movewindow, d"
+	"$mod shift, left, movewindow, l"
+      ]
+      ++ (
+        # workspaces
+        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        builtins.concatLists (builtins.genList (i:
+            let ws = i + 1;
+            in [
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ]
+          )
+          9)
+      );
+  };
+
 
   programs.zsh.enable = true;
   programs.zsh.shellAliases = {

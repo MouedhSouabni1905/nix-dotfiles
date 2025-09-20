@@ -114,6 +114,7 @@
   htop
   neofetch
   vencord
+  vesktop
   gcc
   librewolf
   python312
@@ -125,6 +126,7 @@
   zsh
   alacritty
   pkgs.kitty # required for the default Hyprland config
+  rofi
   ];
   
 
