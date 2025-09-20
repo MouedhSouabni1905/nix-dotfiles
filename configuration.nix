@@ -110,8 +110,9 @@
   hare
   neovim
   fzf
-  glances
-  htop
+  perf
+  valgrind
+  btop
   neofetch
   vencord
   vesktop
@@ -119,8 +120,11 @@
   librewolf
   python312
   curl
+  fff
+  ani-cli
+  zellij
+  bat
   pstree
-  flameshot
   obs-studio
   quickshell
   zsh
