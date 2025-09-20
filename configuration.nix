@@ -14,6 +14,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # making zsh into the default shell
+  environment.shells = with pkgs; [ zsh bash ];
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -52,6 +57,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   #services.desktopManager.plasma6.enable = true;
+  programs.hyprland.enable = true; # enable Hyprland
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -115,13 +121,12 @@
   pstree
   flameshot
   obs-studio
-  #quickshell
+  quickshell
   zsh
   alacritty
   pkgs.kitty # required for the default Hyprland config
   ];
   
-  programs.hyprland.enable = true; # enable Hyprland
 
 
   # Optional, hint Electron apps to use Wayland:
