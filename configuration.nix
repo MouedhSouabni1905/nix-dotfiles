@@ -130,7 +130,9 @@
   zsh
   alacritty
   rofi
-  ksnip
+  swappy
+  slurp
+  grim
   ];
   
 

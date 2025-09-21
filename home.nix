@@ -79,7 +79,7 @@
       [
         "$mod, L, exec, librewolf"
         "$mod shift, Q, killactive"
-        "$mod shift, S, exec, ksnip"
+        "$mod shift, S, exec, grim | slurp"
 	"$mod, return, exec, alacritty"
 	"$mod, space, togglefloating"
 	"$mod, F, fullscreen"
@@ -109,6 +109,8 @@
   };
 
   programs.zellij.enable = true;
+  
+  programs.swappy.enable = true;
 
   programs.zsh.enable = true;
   programs.zsh.shellAliases = {
