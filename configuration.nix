@@ -17,6 +17,8 @@
   # making zsh into the default shell
   environment.shells = with pkgs; [ zsh bash ];
   users.defaultUserShell = pkgs.zsh;
+  programs.neovim.defaultEditor = true;
+  programs.neovim.enable = true;
   programs.zsh.enable = true;
 
   # Use latest kernel.
@@ -133,6 +135,9 @@
   swappy
   slurp
   grim
+  chroma
+  tldr
+  autoenv
   ];
   
 

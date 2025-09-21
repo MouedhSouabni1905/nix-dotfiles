@@ -113,11 +113,27 @@
   programs.swappy.enable = true;
 
   programs.zsh.enable = true;
+  programs.zsh.autosuggestion.enable = true;
+  programs.zsh.enableVteIntegration = true;
   programs.zsh.shellAliases = {
 	ll = "ls -l";
   	".." = "cd ..";
 	la = "ls -l";
   };
+  programs.zsh.oh-my-zsh.enable = true;
+  programs.zsh.oh-my-zsh.plugins = [
+	"autoenv"
+	"colored-man-pages"
+	"colorize"
+	"copybuffer"
+	"copyfile"
+	"extract"
+	"jsontools"
+	"rake-fast"
+	"safe-paste"
+	"sudo"
+  ];
+  programs.zsh.oh-my-zsh.theme = "candy";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
