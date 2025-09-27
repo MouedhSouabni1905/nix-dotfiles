@@ -10,6 +10,10 @@
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+  	"obsidian"
+  ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -20,6 +24,7 @@
   programs.neovim.defaultEditor = true;
   programs.neovim.enable = true;
   programs.zsh.enable = true;
+  environment.variables.EDITOR = "nvim";
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -138,6 +143,8 @@
   chroma
   tldr
   autoenv
+  obsidian
+  tigervnc
   ];
   
 

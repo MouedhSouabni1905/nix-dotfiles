@@ -134,6 +134,11 @@
 	"sudo"
   ];
   programs.zsh.oh-my-zsh.theme = "candy";
+  programs.zellij.enableZshIntegration = true;
+   
+#  programs.neovim.plugins = [
+#	pkgs.vimPlugins.cord-nvim
+ # ]
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
