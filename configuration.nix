@@ -181,6 +181,7 @@
   slurp
   grim
   chroma
+  wl-clipboard
   tldr
   obsidian
   unzip

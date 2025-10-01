@@ -75,12 +75,11 @@
   
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
-    exec-once = ["/home/lubbaragaki/Scripts/pypr/presence.py"];
     bind =
       [
         "$mod, L, exec, librewolf"
         "$mod shift, Q, killactive"
-        "$mod shift, S, exec, grim | slurp"
+        "$mod shift, S, exec, sh -c 'REGION=$(slurp) || exit; grim -g \"$REGION\" - | wl-copy && wl-paste > ~/Pictures/screenshots/Screenshot-$(date +%F_%T).png'"
 	"$mod, return, exec, alacritty"
 	"$mod, space, togglefloating"
 	"$mod, F, fullscreen"
