@@ -101,13 +101,11 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
+      kdePackages.dolphin
     #  thunderbird
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -124,6 +122,7 @@
   vencord
   vesktop
   gcc
+  gpp
   librewolf
   python312
   curl
@@ -137,14 +136,15 @@
   zsh
   alacritty
   rofi
-  swappy
   slurp
   grim
   chroma
   tldr
-  autoenv
   obsidian
-  tigervnc
+  unzip
+  gimp
+  inkscape
+  ncdu
   ];
   
 

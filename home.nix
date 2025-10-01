@@ -75,6 +75,7 @@
   
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
+    exec-once = ["/home/lubbaragaki/Scripts/pypr/presence.py"];
     bind =
       [
         "$mod, L, exec, librewolf"
@@ -122,7 +123,6 @@
   };
   programs.zsh.oh-my-zsh.enable = true;
   programs.zsh.oh-my-zsh.plugins = [
-	"autoenv"
 	"colored-man-pages"
 	"colorize"
 	"copybuffer"
