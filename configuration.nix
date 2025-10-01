@@ -21,8 +21,6 @@
   # making zsh into the default shell
   environment.shells = with pkgs; [ zsh bash ];
   users.defaultUserShell = pkgs.zsh;
-  programs.neovim.defaultEditor = true;
-  programs.neovim.enable = true;
   programs.zsh.enable = true;
   environment.variables.EDITOR = "nvim";
 
@@ -66,6 +64,23 @@
   #services.desktopManager.plasma6.enable = true;
   programs.hyprland.enable = true; # enable Hyprland
 
+  xdg.mime.defaultApplications = {
+	"application/pdf" = "librewolf.desktop";
+	"text/xml" = "nvim.desktop";
+	"text/csv" = "nvim.desktop";
+	"text/plain" = "nvim.desktop";
+	"text/javascript" = "nvim.desktop";
+	"text/markdown" = "nvim.desktop";
+	"application/json" = "nvim.desktop";
+	"video/mp4" = "vlc.desktop";
+	"video/x-matroska" = "vlc.desktop";
+	"image/png" = "phototonic.desktop";
+	"image/jpeg" = "phototonic.desktop";
+	"image/webp" = "phototonic.desktop";
+	"image/svg" = "phototonic.desktop";
+	"inode/directory" = "dolphin.desktop";
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -106,6 +121,33 @@
     ];
   };
 
+  programs.neovim.enable = true;
+  programs.nvf = {
+  	enable = true;
+	settings = {
+		vim = {
+			theme.enable = true;
+			theme.name = "gruvbox";
+			theme.style = "dark";
+
+			languages = {
+				enableLSP = true;
+				enableTreesitter = true;
+
+				nix.enable = true;
+				clang.enable = true;
+				php.enable = true;
+				html.enable = true;
+				python.enable = true;
+                                ruby.enable = true;
+                                css.enable = true;
+                                ts.enable = true;
+			};
+			telescope.enable = true;
+	};
+  };
+};
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -121,12 +163,12 @@
   neofetch
   vencord
   vesktop
+  ruby
   gcc
   gpp
   librewolf
   python312
   curl
-  fff
   ani-cli
   zellij
   bat
@@ -145,6 +187,8 @@
   gimp
   inkscape
   ncdu
+  phototonic
+  vlc
   ];
   
 

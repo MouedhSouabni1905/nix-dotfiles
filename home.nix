@@ -136,9 +136,38 @@
   programs.zsh.oh-my-zsh.theme = "candy";
   programs.zellij.enableZshIntegration = true;
    
-#  programs.neovim.plugins = [
-#	pkgs.vimPlugins.cord-nvim
- # ]
+
+#    programs.neovim =
+
+        #let
+                #toLua = str: "lua << EOF\n${str}\nEOF\n";
+                #toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+        #in
+        #{
+        #enable = true;
+#
+	#extraPackages = with pkgs; [
+		#wl-clipboard
+	#];
+#
+        #plugins = with pkgs.vimPlugins; [
+                #{
+                        #plugin = nvim-lspconfig;
+                        #config = toLuaFile ./nvim/plugin/lsp.lua;
+                #}
+                #{
+                        #plugin = gruvbox-nvim;
+                        #config = "colorscheme gruvbox";
+                #}
+        #];
+#
+       #extraLuaConfig = ''
+#
+       #${builtins.readFile ./nvim/options.lua}
+#
+       #'';
+        #};
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

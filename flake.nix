@@ -6,9 +6,10 @@
 		nixpkgs.url = "nixpkgs/nixos-unstable";
 		home-manager.url = "github:nix-community/home-manager/master";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
+		nvf.url = "github:notashelf/nvf";
 	};
 	
-	outputs = {self, nixpkgs, home-manager, ...} :
+	outputs = {self, nixpkgs, home-manager, nvf, ...} :
 		let
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -17,7 +18,7 @@
 		nixosConfigurations = {
 			nixos = lib.nixosSystem {
 				inherit system;
-				modules = [ ./configuration.nix ];
+				modules = [ ./configuration.nix nvf.nixosModules.default ];
 			};
 		};
 		homeConfigurations = {
