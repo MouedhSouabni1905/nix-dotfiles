@@ -126,6 +126,9 @@ settings = {
                         ts.enable = true;
                 };
                 telescope.enable = true;
+                binds.cheatsheet.enable = true;
+                presence.neocord.enable = true;
+                utility.oil-nvim.enable = true;
                 keymaps = [
                         {
                                 key = "th";
@@ -140,6 +143,41 @@ settings = {
                                 action = ":vert term<CR>";
                                 silent = true;
                                 desc = "Open a terminal on the side (right side)";      
+}
+                        {
+                                key = "ff";
+                                mode = ["n"];
+                                action = ":Telescope find_files<CR>";
+                                silent = true;
+                                desc = "Find files in current directory using telescope";      
+}
+                        {
+                                key = "fg";
+                                mode = ["n"];
+                                action = ":Telescope find_files<CR>";
+                                silent = true;
+                                desc = "Find files in current directory using telescope";      
+}
+                        {
+                                key = "fb";
+                                mode = ["n"];
+                                action = ":Telescope live_grep<CR>";
+                                silent = true;
+                                desc = "Find lines in current directory using telescope";      
+}
+                        {
+                                key = "fh";
+                                mode = ["n"];
+                                action = ":Telescope help_tags<CR>";
+                                silent = true;
+                                desc = "Find help tags";      
+}
+                        {
+                                key = "mo";
+                                mode = ["n"];
+                                action = ":Oil --float<CR>";
+                                silent = true;
+                                desc = "Open Oil-nvim as a floating window in the current directory";      
 }
 ];
 };
