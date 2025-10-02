@@ -128,11 +128,18 @@ settings = {
                 telescope.enable = true;
                 keymaps = [
                         {
-                                key = "tt";
+                                key = "th";
                                 mode = ["n"];
                                 action = ":bo term<CR>";
                                 silent = true;
                                 desc = "Open a terminal below";      
+}
+                        {
+                                key = "tv";
+                                mode = ["n"];
+                                action = ":vert term<CR>";
+                                silent = true;
+                                desc = "Open a terminal on the side (right side)";      
 }
 ];
 };
