@@ -50,6 +50,47 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+  
+  
+  
+  xdg = {
+  portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+                xdg-desktop-portal-hyprland
+                xdg-desktop-portal-gtk
+        ];
+  };
+  mime.enable = true;
+  desktopEntries.phototonic = {
+  name = "Phototonic";
+  exec = "${pkgs.phototonic}/bin/phototonic";
+  };
+  mimeApps = {
+    enable = true;
+    defaultApplications = {
+        "text/html" = "librewolf.desktop";
+        "x-scheme-handler/http" = "librewolf.desktop";
+        "x-scheme-handler/https" = "librewolf.desktop";
+        "x-scheme-handler/about" = "librewolf.desktop";
+        "x-scheme-handler/unknown" = "librewolf.desktop";
+        "application/pdf" = "librewolf.desktop";
+        "text/xml" = "nvim.desktop";
+        "text/csv" = "nvim.desktop";
+        "text/plain" = "nvim.desktop";
+        "text/javascript" = "nvim.desktop";
+        "text/markdown" = "nvim.desktop";
+        "application/json" = "nvim.desktop";
+        "video/mp4" = "vlc.desktop";
+        "video/x-matroska" = "vlc.desktop";
+        "image/png" = "phototonic.desktop";
+        "image/jpeg" = "phototonic.desktop";
+        "image/webp" = "phototonic.desktop";
+        "image/svg" = "phototonic.desktop";
+        "inode/directory" = "org.kde.dolphin.desktop";
+    };
+  };
+};
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -110,7 +151,6 @@
 
   programs.zellij.enable = true;
   
-  programs.swappy.enable = true;
 
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
@@ -118,7 +158,7 @@
   programs.zsh.shellAliases = {
 	ll = "ls -l";
   	".." = "cd ..";
-	la = "ls -l";
+	la = "ls -a";
   };
   programs.zsh.oh-my-zsh.enable = true;
   programs.zsh.oh-my-zsh.plugins = [
@@ -136,38 +176,6 @@
   programs.zellij.enableZshIntegration = true;
    
 
-#    programs.neovim =
-
-        #let
-                #toLua = str: "lua << EOF\n${str}\nEOF\n";
-                #toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-        #in
-        #{
-        #enable = true;
-#
-	#extraPackages = with pkgs; [
-		#wl-clipboard
-	#];
-#
-        #plugins = with pkgs.vimPlugins; [
-                #{
-                        #plugin = nvim-lspconfig;
-                        #config = toLuaFile ./nvim/plugin/lsp.lua;
-                #}
-                #{
-                        #plugin = gruvbox-nvim;
-                        #config = "colorscheme gruvbox";
-                #}
-        #];
-#
-       #extraLuaConfig = ''
-#
-       #${builtins.readFile ./nvim/options.lua}
-#
-       #'';
-        #};
-
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-}
+          # Let Home Manager install and manage itself.
+          programs.home-manager.enable = true;
+        }
