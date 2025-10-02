@@ -144,6 +144,15 @@
                                 ts.enable = true;
 			};
 			telescope.enable = true;
+                        keymaps = [
+                                {
+                                        key = "tt";
+                                        mode = ["n"];
+                                        action = ":bo term<CR>";
+                                        silent = true;
+                                        desc = "Open a terminal below";      
+    }
+  ];
 	};
   };
 };
