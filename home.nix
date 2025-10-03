@@ -133,7 +133,8 @@
 	"$mod shift, down, movewindow, d"
 	"$mod shift, left, movewindow, l"
 	"$mod, D, exec, rofi -show drun"
-	"$mod, V, exec, [float] pavucontrol"
+        "$mod, V, exec, pamixer -i 5"
+        "$mod shift, V, exec, pamixer -d 5"
       ]
       ++ (
         # workspaces
