@@ -6,69 +6,69 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+imports = [ # Include the results of the hardware scan.
+        ./hardware-configuration.nix
+        ./nvfconfig.nix
+];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
-  	"obsidian"
-  ];
+nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+"obsidian"
+];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+# Bootloader.
+boot.loader.systemd-boot.enable = true;
+boot.loader.efi.canTouchEfiVariables = true;
 
-  # making zsh into the default shell
-  environment.shells = with pkgs; [ zsh bash ];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-  environment.variables.EDITOR = "nvim";
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+# making zsh into the default shell
+environment.shells = with pkgs; [ zsh bash ];
+users.defaultUserShell = pkgs.zsh;
+programs.zsh.enable = true;
+environment.variables.EDITOR = "nvim";
+# Use latest kernel.
+boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+networking.hostName = "nixos"; # Define your hostname.
+# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+# Configure network proxy if necessary
+# networking.proxy.default = "http://user:password@proxy:port/";
+# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+# Enable networking
+networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Paris";
+# Set your time zone.
+time.timeZone = "Europe/Paris";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+# Select internationalisation properties.
+i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fr_FR.UTF-8";
-    LC_IDENTIFICATION = "fr_FR.UTF-8";
-    LC_MEASUREMENT = "fr_FR.UTF-8";
-    LC_MONETARY = "fr_FR.UTF-8";
-    LC_NAME = "fr_FR.UTF-8";
-    LC_NUMERIC = "fr_FR.UTF-8";
-    LC_PAPER = "fr_FR.UTF-8";
-    LC_TELEPHONE = "fr_FR.UTF-8";
-    LC_TIME = "fr_FR.UTF-8";
-  };
+i18n.extraLocaleSettings = {
+LC_ADDRESS = "fr_FR.UTF-8";
+LC_IDENTIFICATION = "fr_FR.UTF-8";
+LC_MEASUREMENT = "fr_FR.UTF-8";
+LC_MONETARY = "fr_FR.UTF-8";
+LC_NAME = "fr_FR.UTF-8";
+LC_NUMERIC = "fr_FR.UTF-8";
+LC_PAPER = "fr_FR.UTF-8";
+LC_TELEPHONE = "fr_FR.UTF-8";
+LC_TIME = "fr_FR.UTF-8";
+};
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-        #  services.xserver.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  #services.desktopManager.plasma6.enable = true;
-  programs.hyprland.enable = true; # enable Hyprland
+# Enable the X11 windowing system.
+# You can disable this if you're only using the Wayland session.
+#  services.xserver.enable = true;
+services.displayManager.sddm.wayland.enable = true;
+# Enable the KDE Plasma Desktop Environment.
+services.displayManager.sddm.enable = true;
+#services.desktopManager.plasma6.enable = true;
+programs.hyprland.enable = true; # enable Hyprland
 
 # Configure keymap in X11
-        #services.xserver.xkb = {
-                #layout = "us";
-                #variant = "";
-                #};
+#services.xserver.xkb = {
+        #layout = "us";
+        #variant = "";
+        #};
 
 # Enable CUPS to print documents.
 services.printing.enable = true;
@@ -105,87 +105,6 @@ kdePackages.dolphin
 ];
 };
 
-programs.neovim.enable = true;
-programs.nvf = {
-enable = true;
-settings = {
-        vim = {
-                theme.enable = true;
-                theme.name = "gruvbox";
-                theme.style = "dark";
-
-                languages = {
-                        enableLSP = true;
-                        enableTreesitter = true;
-
-                        nix.enable = true;
-                        clang.enable = true;
-                        php.enable = true;
-                        html.enable = true;
-                        python.enable = true;
-                        ruby.enable = true;
-                        css.enable = true;
-                        ts.enable = true;
-                };
-                telescope.enable = true;
-                binds.cheatsheet.enable = true;
-                presence.neocord.enable = true;
-                utility.oil-nvim.enable = true;
-                keymaps = [
-                        {
-                                key = "th";
-                                mode = ["n"];
-                                action = ":bo term<CR>";
-                                silent = true;
-                                desc = "Open a terminal below";      
-}
-                        {
-                                key = "tv";
-                                mode = ["n"];
-                                action = ":vert term<CR>";
-                                silent = true;
-                                desc = "Open a terminal on the side (right side)";      
-}
-                        {
-                                key = "ff";
-                                mode = ["n"];
-                                action = ":Telescope find_files<CR>";
-                                silent = true;
-                                desc = "Find files in current directory using telescope";      
-}
-                        {
-                                key = "fg";
-                                mode = ["n"];
-                                action = ":Telescope find_files<CR>";
-                                silent = true;
-                                desc = "Find files in current directory using telescope";      
-}
-                        {
-                                key = "fb";
-                                mode = ["n"];
-                                action = ":Telescope live_grep<CR>";
-                                silent = true;
-                                desc = "Find lines in current directory using telescope";      
-}
-                        {
-                                key = "fh";
-                                mode = ["n"];
-                                action = ":Telescope help_tags<CR>";
-                                silent = true;
-                                desc = "Find help tags";      
-}
-                        {
-                                key = "mo";
-                                mode = ["n"];
-                                action = ":Oil --float<CR>";
-                                silent = true;
-                                desc = "Open Oil-nvim as a floating window in the current directory";      
-}
-];
-};
-};
-};
-
 environment.variables = {
 };
 
@@ -206,20 +125,19 @@ vencord
 vesktop
 ruby
 gcc
-gpp
 tree
 librewolf
 pavucontrol
 python312
 curl
+sct
 ani-cli
 zellij
 bat
 pstree
 pamixer
 obs-studio
-xdg-desktop-portal-hyprland
-xdg-desktop-portal-gtk
+unixtools.netstat
 quickshell
 zsh
 alacritty
