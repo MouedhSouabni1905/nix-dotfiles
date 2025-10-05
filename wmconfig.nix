@@ -29,6 +29,8 @@ colorscheme = {
         primarycolor = "472499";
 };
 
+beziercurve = "cubic-bezier( 0.63, 0.78, 0.63, 0.08 )";
+
 in
 
 {
@@ -49,10 +51,10 @@ wayland.windowManager.hyprland.settings = {
                         ]
                 ) 9) );
         general = {
-                border_size = "2";
-                gaps_in = "2";
-                gaps_out = "35,2,2,2";
-                float_gaps = "35 2 2 2";
+                border_size = "1";
+                gaps_in = "3";
+                gaps_out = "3";
+                float_gaps = "3";
                 "col.active_border" = "rgb(${colorscheme.primarycolor})";
                 resize_on_border = true;
                 snap.enabled = true;
@@ -96,7 +98,6 @@ services.hyprsunset.settings = {
         ];
 };
 wayland.windowManager.hyprland.extraConfig = '' 
-        
 ''; # add extra lines to the hyprland config file
 
 # quickshell configuration

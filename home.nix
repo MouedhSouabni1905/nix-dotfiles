@@ -40,6 +40,7 @@ imports = [
         ./shellconfig.nix
         ./wmconfig.nix
         ./misc/cursor.nix
+        ./qsconfig.nix
 ];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage
