@@ -17,7 +17,7 @@ home.stateVersion = "25.05"; # Please read the comment before changing.
 
 # The home.packages option allows you to install Nix packages into your
 # environment.
-home.packages = [
+home.packages = with pkgs; [
 # # Adds the 'hello' command to your environment. It prints a friendly
 # # "Hello, world!" when run.
 # pkgs.hello
@@ -39,6 +39,7 @@ home.packages = [
 imports = [
         ./shellconfig.nix
         ./wmconfig.nix
+        ./misc/cursor.nix
 ];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage

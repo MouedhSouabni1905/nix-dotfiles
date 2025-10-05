@@ -108,6 +108,10 @@ kdePackages.dolphin
 environment.variables = {
 };
 
+fonts.packages = with pkgs; [
+  nerd-fonts.noto
+];
+
 # List packages installed in system profile. To search, run:
 # $ nix search wget
 environment.systemPackages = with pkgs; [
@@ -130,7 +134,6 @@ librewolf
 pavucontrol
 python312
 curl
-sct
 ani-cli
 zellij
 bat
@@ -138,7 +141,6 @@ pstree
 pamixer
 obs-studio
 unixtools.netstat
-quickshell
 zsh
 alacritty
 rofi
