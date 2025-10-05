@@ -67,7 +67,6 @@ wayland.windowManager.hyprland.settings = {
         };
         animations = {
                 enabled = true;
-                workspace_wraparound = true;
         };
         misc.font-family = "noto";
         cursor.inactive_timeout = 15.0;
