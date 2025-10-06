@@ -15,6 +15,16 @@ Scope {
                 PanelWindow {
                         required property var modelData
                         screen: modelData
+                        
+                        color: "#4000a8"
+
+                        margins {
+                                top: 3
+                                left: 3
+                                right: 3
+                                bottom: 3
+                        }
+
 
                         anchors {
                                 top: true
