@@ -1,5 +1,6 @@
 import Quickshell
 import QtQuick
+import "../themes"
 
 Scope {
         id: root
@@ -16,15 +17,7 @@ Scope {
                         required property var modelData
                         screen: modelData
                         
-                        color: "#4000a8"
-
-                        margins {
-                                top: 3
-                                left: 3
-                                right: 3
-                                bottom: 3
-                        }
-
+                        color: Theme.topBarBg
 
                         anchors {
                                 top: true

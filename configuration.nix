@@ -109,7 +109,7 @@ environment.variables = {
 };
 
 fonts.packages = with pkgs; [
-  nerd-fonts.noto
+        nerd-fonts.meslo-lg
 ];
 
 # List packages installed in system profile. To search, run:
