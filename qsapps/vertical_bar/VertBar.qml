@@ -23,14 +23,6 @@ Scope {
 
                         implicitWidth: 50
 
-                        Image {
-                                smooth: true
-                                source: "../media/discordpfp.jpg"
-                                sourceSize.width: 50
-                                sourceSize.height: 50
-                        }
-
-
                 }
 
         }

@@ -134,8 +134,11 @@ librewolf
 pavucontrol
 python312
 curl
+mc
 ani-cli
 zellij
+element
+bartib
 bat
 pstree
 pamixer
