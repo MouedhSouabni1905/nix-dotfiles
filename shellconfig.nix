@@ -33,5 +33,8 @@ programs.zsh.oh-my-zsh.enable = true;
 programs.zsh.oh-my-zsh.plugins = omzplugins;  
 programs.zsh.oh-my-zsh.theme = "candy";
 programs.zellij.enableZshIntegration = true;
+programs.zsh.initContent = ''
+                export BARTIB_FILE=~/.timetrack
+        '';
 
 }

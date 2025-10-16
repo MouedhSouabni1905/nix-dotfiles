@@ -24,6 +24,7 @@ environment.shells = with pkgs; [ zsh bash ];
 users.defaultUserShell = pkgs.zsh;
 programs.zsh.enable = true;
 environment.variables.EDITOR = "nvim";
+environment.variables.BARTIB_FILE = "~/.timetrack";
 # Use latest kernel.
 boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -137,7 +138,6 @@ curl
 mc
 ani-cli
 zellij
-element
 bartib
 bat
 pstree
