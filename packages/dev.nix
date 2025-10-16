@@ -2,7 +2,7 @@
 
 {
 
-environmentsystemPackages = with pkgs; [
+environment.systemPackages = with pkgs; [
                 vim
                 neovim
                 tldr

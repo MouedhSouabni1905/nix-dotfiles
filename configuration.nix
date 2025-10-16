@@ -9,6 +9,12 @@
 imports = [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
         ./nvfconfig.nix
+        ./packages/cybersec.nix
+        ./packages/dev.nix
+        ./packages/env.nix
+        ./packages/extra.nix
+        ./packages/org.nix
+        ./packages/term.nix
 ];
 
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
@@ -116,49 +122,6 @@ fonts.packages = with pkgs; [
 # List packages installed in system profile. To search, run:
 # $ nix search wget
 environment.systemPackages = with pkgs; [
-vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-wget
-git
-hare
-neovim
-fzf
-perf
-valgrind
-btop
-neofetch
-vencord
-vesktop
-ruby
-gcc
-tree
-librewolf
-pavucontrol
-python312
-curl
-mc
-ani-cli
-zellij
-bartib
-bat
-pstree
-pamixer
-obs-studio
-unixtools.netstat
-zsh
-alacritty
-rofi
-slurp
-grim
-chroma
-wl-clipboard
-tldr
-obsidian
-unzip
-gimp
-inkscape
-ncdu
-phototonic
-vlc
 ];
 
 
