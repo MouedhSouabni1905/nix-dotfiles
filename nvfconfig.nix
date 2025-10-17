@@ -3,13 +3,6 @@
 let
 mykeymaps = [
         {
-                key = "mr";
-                mode = ["n"];
-                action = ":tnoremap <Esc> <C-\><C-n><CR>";
-                silent = true;
-                desc = "Remaps the escape from terminal bindings to the esc key";
-        }
-        {
                 key = "th";
                 mode = ["n"];
                 action = ":bo term<CR>";
@@ -70,7 +63,7 @@ programs.nvf = {
         settings = {
                 vim = {
                         theme.enable = true;
-                        theme.name = "gruvbox";
+                        theme.name = "nord";
                         theme.style = "dark";
 
                         languages = {
@@ -90,9 +83,18 @@ programs.nvf = {
                         binds.cheatsheet.enable = true;
                         presence.neocord.enable = true;
                         utility.oil-nvim.enable = true;
+                        notes.obsidian.enable = true;
+                        notes.obsidian.setupOpts = {
+                                workspaces = [
+                                        {
+                                                name = "vault";
+                                                path = "~/Notes/obsidian-backup/Zettelkasten";
+                                        }
+                                        ];
+                                };
                         keymaps = mykeymaps;                
+                        };
                 };
         };
-};
 
 }
