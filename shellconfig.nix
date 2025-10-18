@@ -15,9 +15,6 @@ omzplugins =  [
 ];
 
 aliases = {
-        ll = "ls -l";
-        ".." = "cd ..";
-        la = "ls -a";
 };
 
 in
@@ -35,6 +32,8 @@ programs.zsh.oh-my-zsh.theme = "candy";
 programs.zellij.enableZshIntegration = true;
 programs.zsh.initContent = ''
                 export BARTIB_FILE=~/.timetrack
+                export NIXPKGS_ALLOW_UNFREE=1
+                alias bashcards='bashcards -d ~/Notes/flashcards';
         '';
 
 }
