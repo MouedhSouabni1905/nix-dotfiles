@@ -12,6 +12,9 @@ environment.systemPackages = with pkgs; [
                 netcat
                 unixtools.arp
                 dig
+                ubootTools
+                rpi-imager
+                libisoburn
         ];
 
 }

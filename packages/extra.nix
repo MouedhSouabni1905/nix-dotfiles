@@ -9,7 +9,10 @@ environment.systemPackages = with pkgs; [
                 obs-studio
                 ani-cli
                 gimp
+                polkit
                 inkscape
+                tree
+                pstree
         ];
 
 }

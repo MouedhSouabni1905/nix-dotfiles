@@ -10,6 +10,7 @@ environment.systemPackages = with pkgs; [
                 ruby
                 hare
                 git
+                ripgrep
         ];
 
 }
