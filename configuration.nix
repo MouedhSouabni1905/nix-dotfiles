@@ -16,6 +16,7 @@ imports = [ # Include the results of the hardware scan.
         ./packages/org.nix
         ./packages/term.nix
         ./virt.nix
+        ./network.nix
 ];
 
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [

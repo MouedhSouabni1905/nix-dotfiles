@@ -15,6 +15,7 @@ environment.systemPackages = with pkgs; [
                 ubootTools
                 rpi-imager
                 libisoburn
+                openssl
         ];
 
 }
