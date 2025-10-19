@@ -1,17 +1,27 @@
 {config, pkgs, ...} :
 
 {
+
+boot.binfmt.emulatedSystems = [
+        "aarch64-linux"
+];
+
+boot.kernelModules = [
+        "kvm"
+        "kvm_arm"
+];
+
 virtualisation = {
   libvirtd = {
     enable = true;
-    # Used for UEFI boot of Home Assistant OS guest image
-    # qemuOvmf = true;
   };
 };
 
 environment.systemPackages = with pkgs; [
   # For virt-install
   virt-manager
+  
+  qemu
 
   # For lsusb
   usbutils
