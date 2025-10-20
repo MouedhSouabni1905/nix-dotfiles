@@ -6,10 +6,11 @@
 		nixpkgs.url = "nixpkgs/nixos-unstable";
 		home-manager.url = "github:nix-community/home-manager/master";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
-		nvf.url = "github:notashelf/nvf";
+		#nvim-plugin-name.url = "github:repository";
+		#nvim-plugin-name.flake = false;
 	};
 	
-	outputs = {self, nixpkgs, home-manager, nvf, ...} :
+	outputs = {self, nixpkgs, home-manager, ...}@inputs :
 		let
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -25,6 +26,7 @@
 			lubbaragaki = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
 				modules = [ ./home.nix ];
+				extraSpecialArgs = { inherit inputs; };
 			};
 		};
 	};

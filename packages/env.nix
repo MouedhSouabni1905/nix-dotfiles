@@ -16,6 +16,11 @@ environment.systemPackages = with pkgs; [
                 phototonic
                 vlc
                 slurp
+                detox
+                backdown
+                # distrobox => for VMs
+                # bocker => for VMs
+                pdftk
         ];
 
 }

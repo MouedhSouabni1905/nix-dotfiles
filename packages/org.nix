@@ -6,6 +6,9 @@ environment.systemPackages = with pkgs; [
                 obsidian
                 d2
                 bartib
+                asciidoc
+                ascii
+                ntfy-sh
         ];
 
 }

@@ -16,6 +16,10 @@ environment.systemPackages = with pkgs; [
                 rpi-imager
                 libisoburn
                 openssl
+                binsider
+                binwalk
+                xh
+
         ];
 
 }

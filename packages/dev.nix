@@ -11,6 +11,7 @@ environment.systemPackages = with pkgs; [
                 hare
                 git
                 ripgrep
+                hyperfine
         ];
 
 }

@@ -12,16 +12,18 @@
 
                 nameservers = [ "198.168.10.173" ];
 
-                networkmanager.ensureProfiles.profiles = {
-                          home-wifi = {
-                                connection = {
-                                        id = "home-wifi";
-                                        permissions = "";
-                                        type = "wifi";
-                                };
-                                ipv4.ignore-auto-dns = true;
-                          };
-                };
+                #dhcpcd.extraConfig = '' nohook resolv.conf '';
+
+                # networkmanager.ensureProfiles.profiles = {
+                #         home-wifi = {
+                #               connection = {
+                #                       id = "home-wifi";
+                #                       permissions = "";
+                #                       type = "wifi";
+                #               };
+                #               ipv4.ignore-auto-dns = true;
+                #         };
+                #};
 
                 interfaces.enp46s0 = {
                         useDHCP = false;

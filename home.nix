@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 # Home Manager needs a bit of information about you and the paths it should
@@ -41,6 +41,7 @@ imports = [
         ./wmconfig.nix
         ./misc/cursor.nix
         ./qsconfig.nix
+	./neovim.nix
 ];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage

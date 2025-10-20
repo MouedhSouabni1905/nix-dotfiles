@@ -8,7 +8,6 @@
 {
 imports = [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
-        ./nvfconfig.nix
         ./packages/cybersec.nix
         ./packages/dev.nix
         ./packages/env.nix

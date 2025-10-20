@@ -9,7 +9,9 @@ environment.systemPackages = with pkgs; [
                 fzf
                 pstree
                 bat
-
+                eza
+                projectable
+                chroma
         ];
 
 }
