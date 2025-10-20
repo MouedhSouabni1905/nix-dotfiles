@@ -19,7 +19,7 @@
 		nixosConfigurations = {
 			nixos = lib.nixosSystem {
 				inherit system;
-				modules = [ ./configuration.nix nvf.nixosModules.default ];
+				modules = [ ./configuration.nix ];
 			};
 		};
 		homeConfigurations = {

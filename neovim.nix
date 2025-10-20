@@ -19,8 +19,8 @@
 	programs.neovim = 
 
 	let
-		toLua = str: "lua << EOF\n${str}\nEOF\n"
-		toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n"
+		toLua = str: "lua << EOF\n${str}\nEOF\n";
+		toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 	in
 
 	{
@@ -31,23 +31,20 @@
 		vimdiffAlias = true;
 
 		extraLuaConfig = ''
-			${builtins.ReadFile ./nvim/options.lua}
+			${builtins.readFile ./nvim/options.lua}
 		'';
 
 		plugins = with pkgs.vimPlugins; [
 			
-			bamboo-nvim
 			{
 				plugin = bamboo-nvim;
-				config = "colorscheme bambon";
+				config = "colorscheme bamboo";
 			}
-			nvim-lspconfig
 			{
 				plugin = nvim-lspconfig;
-				config = toLuaFile ./nvim/plugin/lsp/lua;
+				config = toLuaFile ./nvim/plugin/lsp.lua;
 			}
-			comment-nvim
-			{ # a set that defines configurations for the plugins
+			{
 				plugin = comment-nvim;
 				config = toLua "require(\"Comment\").setup()";
 			}
@@ -57,18 +54,22 @@
 			lualine-nvim
 			nvim-web-devicons
 			vim-nix
-			(nvim-treesitter.withPlugins (p: [
-				p.treesitter-nix
-				p.treesitter-vim
-				p.treesitter-bash
-				p.treesitter-lua
-				p.treesitter-python
-				p.treesitter-json
-				p.treesitter-ruby
-				p.treesitter-c
-				# p.treesitter-yml
-				# p.treesitter-ts/js
-			]));
+			{
+			plugin = (nvim-treesitter.withPlugins (p: [
+					p.tree-sitter-nix
+					p.tree-sitter-vim
+					p.tree-sitter-bash
+					p.tree-sitter-lua
+					p.tree-sitter-python
+					p.tree-sitter-json
+					p.tree-sitter-ruby
+					p.tree-sitter-c
+					# p.treesitter-yml
+					# p.treesitter-ts/js
+				]));
+			config = toLuaFile ./nvim/plugin/treesitter.lua;
+			}
+
 
 		];
 

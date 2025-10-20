@@ -1,6 +1,6 @@
 local on_attach = function(_, bufnr)
 
-	local bufmap = function(keys, function)
+	local bufmap = function(keys, func)
 		vim.keymap.set('n', keys, func, {buffer = bufnr})
 	end
 
@@ -25,15 +25,15 @@ local on_attach = function(_, bufnr)
 
 end
 
-require("mason").setup()
-require("mason-lspconfig").setup_handlers({
-	function(server_name) 
-		require("lspconfig")[server_name].setup {
-			on_attach = on_attach,
-			capabilities = capabilities
-		} -- each of these functions takes the name of an lsp server and calls the 'setup' function for the element of the table returned by the 'lspconfig' file with the on_attach and capabilites arguments
-	end,
-}) -- since the require returns whatever the 'required' file returns, here we're defining an element inside of it called setup_handlers which is a table of functions
+-- require("mason").setup()
+-- require("mason-lspconfig").setup_handlers({
+-- 	function(server_name) 
+-- 		require("lspconfig")[server_name].setup {
+-- 			on_attach = on_attach,
+			-- capabilities = capabilities
+		-- } -- each of these functions takes the name of an lsp server and calls the 'setup' function for the element of the table returned by the 'lspconfig' file with the on_attach and capabilites arguments
+	-- end,
+-- }) -- since the require returns whatever the 'required' file returns, here we're defining an element inside of it called setup_handlers which is a table of functions
 -- long story short, we setup functions that handle the lsp servers we loaded, using the keymaps we defined earlier in this file
 
 
