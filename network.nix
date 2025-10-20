@@ -10,6 +10,18 @@
 
                 hostName = "nixos";
 
+                nameservers = [ "198.168.10.173" ];
+
+                networkmanager.ensureProfiles.profiles = {
+                          home-wifi = {
+                                connection = {
+                                        id = "home-wifi";
+                                        permissions = "";
+                                        type = "wifi";
+                                };
+                                ipv4.ignore-auto-dns = true;
+                          };
+                };
 
                 interfaces.enp46s0 = {
                         useDHCP = false;
@@ -39,11 +51,14 @@
                 enable = true;
                 resolveLocalQueries = false;
                 settings = {
+                        expand-hosts = true;
+                        address = [
+                                "198.168.10.173" # Resolve all .dev.local domains to localhost for development
+                        ];
                         interface = "enp46s0";
                         "dhcp-range" = [ "198.168.10.100,198.168.10.200,255.255.255.0,24h" ];
                         "dhcp-authoritative" = true;
-                        "no-resolv" = true;
-                        "server" = [ "1.1.1.1" "8.8.8.8" ];
+                        #"server" = [ "1.1.1.1" "8.8.8.8" ];
                 };
         };
 
