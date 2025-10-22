@@ -1,2 +1,2 @@
-# nix
-config and dotfiles (wip)
+# Nix configuration
+I've switched to a new distro so this is obsolete, althoug I did reuse some parts of it. The new config is [here](https://github.com/MouedhSouabni1905/denebola). You may use and edit this config as you like, it should work out of the box but it has some special cases like [this file](https://github.com/MouedhSouabni1905/nix-dotfiles/blob/main/network.nix) which is configured to make the pi-hole on my board work.
